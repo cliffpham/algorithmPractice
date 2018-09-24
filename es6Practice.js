@@ -640,7 +640,7 @@ function chunkArray (arr, target) {
     return newArray
 }
 
-console.log(chunkArray(['a',2,4,5,6], 2));
+// console.log(chunkArray(['a',2,4,5,6], 2));
 
 
 var test = "Hello  !!_#$%"
@@ -688,7 +688,7 @@ function anagramChecker(str1, str2) {
 
 }
 
-console.log(anagramChecker('RAIL! SAFETY!', 'fairy tales'));
+// console.log(anagramChecker('RAIL! SAFETY!', 'fairy tales'));
 // console.log(anagramChecker('Hi there!', 'Bye there!'));
 
 function capitalize (str) {
@@ -742,7 +742,7 @@ function steps(number) {
     }
 }
 
-steps(5);
+// steps(5);
 
 
 ////steps recursive solution ///
@@ -754,7 +754,7 @@ function stepsRecursive(n, row = 0, stair = '') {
 
     if(stair.length === n) {
         console.log(stair);
-        return steps(n, row++);
+        return stepsRecursive(n, row + 1);
     }
 
     if(stair.length <= row) {
@@ -762,7 +762,42 @@ function stepsRecursive(n, row = 0, stair = '') {
     } else {
         stair += ' ';
     }
-    steps(n, row, stair);
+    stepsRecursive(n, row, stair);
 }
 
-stepsRecursive(5);
+// stepsRecursive(5);
+
+function pyramid(n) {
+    const midpoint = Math.floor((2 * n - 1)/ 2);
+
+    for (let row = 0; row < n; row++) {
+        let level = '';
+
+        for (let column = 0; column < 2 * n - 1; column++) {
+            if (midpoint - row <= column && midpoint + row >= column) {
+                level += '#'
+            } else {
+                level += ' ';
+            }
+        }
+        console.log(level);
+    }
+}
+
+pyramid(4);
+
+function vowelChecker(str) {
+    const vowels = ['a', 'i', 'e', 'o', 'u'];
+    let counter = 0;
+
+
+    for (let char of str) {
+        if(vowels.includes(char)) {
+            counter++
+        }
+     }
+     return counter
+}
+
+// console.log(vowelChecker('hello'));
+
